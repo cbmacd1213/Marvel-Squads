@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+  <h2>Enter a New Squad</h2>
+<form action="/squads" method="POST">
+  <label>Name
+    <select name="name">
+      <option value="North">North</option>
+      <option value="East">East</option>
+      <option value="South">South</option>
+      <option value="West">West</option>
+    </select>
+  </label><br>
+  <label>Character
+    <select name="character">
+      <option value="Spiderman"></option>
+      <option value="Iron Man">Iron Man</option>
+      <option value="Hulk">Hulk</option>
+      <option value="Captain America">Captain America</option>
+      <option value="Thor">Thor</option>
+    </select>
+  </label><br>
+  <input type="submit" value="Add Flight">
+</form>
+<%- include('../partials/footer') %>

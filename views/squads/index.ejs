@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="" class="brand-logo left">Marvel Squads</a>
+          <ul class="right">
+            <li>
+              <% if (user) { %>
+                  <a href="/logout"><i class="material-icons left"></i>Log Out</a>
+              <% } else { %>
+                  <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>
+              <% } %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <table id="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Character</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% squads.forEach(function(s) { %>
+            <tr>
+              <td><%= s.name %></td>
+              <td><%= s.character %></td>
+              <td><a href="/squads/<%=squad._id%>">Details</a></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+</body>
+</html>
