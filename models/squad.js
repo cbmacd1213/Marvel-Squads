@@ -13,6 +13,7 @@ let squadSchema = new Schema({
     googleId: String,
     name: {
         type: String,
+        enum: ['North', 'East', 'South', 'West']
     },
     characters: [characterSchema] 
 })

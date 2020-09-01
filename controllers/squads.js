@@ -1,4 +1,6 @@
 const Squad = require('../models/squad');
+const Character = require('../models/character');
+
 module.exports = {
     index,
     show,
@@ -16,7 +18,7 @@ function index(req, res) {
 
 function show(req, res) {
     Squad.findById(req.params.id, function(err, squad) {
-      Ticket.find({squad: squad._id}, function(err) {
+      Character.find({squad: squad._id}, function(err) {
        res.render('squads/show', { title: 'Squad Detail', squad });
     });
   });

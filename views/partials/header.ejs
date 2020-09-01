@@ -8,10 +8,10 @@
   <title><%= title %></title>
 </head>
 <body>
-  <nav>
     <nav>
-        <a href="/">HOME</a>
-      </nav>
+        <a href="/squads/new" <%- title === 'Add Squad' ? 'class="active"' : '' %>>ADD SQUAD</a>
+        <a href="/squads" <%- title === 'All Squads' ? 'class="active"' : '' %>>ALL SQUADS</a>
+    </nav>
   </nav>
   <main>
     <h1><%= title %></h1>

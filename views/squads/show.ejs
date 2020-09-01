@@ -1,0 +1,51 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+    <div>Name: </div>
+    <div><%= squad.name %></div>
+    <div>Character: </div>
+    <div><%= squad.character %></div>
+    <form id="add-layover-form" method="POST" action="/squads/<%= squad._id %>">
+        <label>Layover:</label>
+        <select name="airport">
+            <option value="Spiderman"></option>
+            <option value="Iron Man">Iron Man</option>
+            <option value="Hulk">Hulk</option>
+            <option value="Captain America">Captain America</option>
+            <option value="Thor">Thor</option>
+        </select>
+        <input type="submit" value="Add Layover">
+    </form>
+    
+
+      <% if (squads.length) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Character</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% squad.forEach(function(s) { %>
+              <tr>
+                <td><%= s.name %></td>
+               <td><%= s.character %></td>
+               <td>
+                <form action="/squads/<%= s._id %>?_method=DELETE" method="POST">
+                  <button class="red-button" type="submit">X</button>
+                </form> 
+              </td>
+              </tr>
+            <% }); %>
+            <tr>
+              <td colspan="2"></td>
+            </tr>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h5>No Squads Assembled</h5>
+      <% } %>
+
+
+<%- include('../partials/footer') %>
