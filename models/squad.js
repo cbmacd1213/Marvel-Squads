@@ -15,7 +15,7 @@ let squadSchema = new Schema({
         type: String,
         enum: ['North', 'East', 'South', 'West']
     },
-    characters: [characterSchema] 
+    characters: [characterSchema]
 })
 
 module.exports = mongoose.model('Squad', squadSchema);

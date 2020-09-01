@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marvel Squads</title>
-</head>
-<body>
+<%- include('../partials/header') %>
+
     <nav>
         <div class="nav-wrapper">
           <a href="" class="brand-logo left">Marvel Squads</a>
@@ -31,11 +25,12 @@
           <% squads.forEach(function(squad) { %>
             <tr>
               <td><%= squad.name %></td>
-              <td><%= squad.character %></td>
+              <td><%= squad.characters %></td>
               <td><a href="/squads/<%=squad._id%>">Details</a>&nbsp;|&nbsp;<a href="/squads/<%=squad._id%>/edit">Edit</a></td>
             </tr>
             <% }); %>
           </tbody>
         </table>
-</body>
-</html>
+
+
+<%- include('../partials/footer') %>
