@@ -10,8 +10,8 @@
 
 <form id="add-character-form" method="POST" action="/characters">
   <label>Character:</label>
-  <select name="character">
-    <% characters.forEach(function(c) { %> 
+  <select name="characters">
+    <%squad.characters.forEach(function(c) { %> 
     <option value="<%=c._id%>"><%= c.name %></option>
     <% }) %>
   </select>

@@ -19,17 +19,25 @@ function index(req, res) {
     });
   }
 
- function show(req, res) {
-    Squad.findById(req.params.id, function(err, squad) {
-      Character.find({}, function(err, characters){
-        res.render('squads/show', { characters, title: 'Squad Detail', squad });
+//  function show(req, res) {
+//     Squad.findById(req.params.id, function(err, squad) {
+//       Character.find({}, function(err, characters){
+//         res.render('squads/show', { characters, title: 'Squad Detail', squad });
 
-      })
-        //console.log('squad', squad)
-        //Character.save({squad: squad._id}, function(err, characters) {
-    //});
-  });
- }
+//       })
+//         //console.log('squad', squad)
+//         //Character.save({squad: squad._id}, function(err, characters) {
+//     //});
+//   });
+//  }
+
+function show(req, res) {
+  Squad.findById(req.params.id).populate('characters').exec(function(err, squad) {
+    //Character.find({}).populate('squads').exec(function(err, characters){
+      res.render('squads/show', { title: 'Squad Detail', squad});
+    })    
+//})
+}
 
 function newSquad(req, res) {
   Character.find({}, function(err, characters){
