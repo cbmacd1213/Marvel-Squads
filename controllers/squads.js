@@ -1,6 +1,8 @@
 const Squad = require('../models/squad');
 
 const Character = require('../models/character');
+const characters = require('./characters');
+const character = require('../models/character');
 
 module.exports = {
     index,
@@ -28,8 +30,10 @@ function index(req, res) {
  }
 
 function newSquad(req, res) {
-    res.render('squads/new', { title: 'Add Squad' });
-  }
+  Character.find({}, function(err, characters){
+    res.render('squads/new', characters, {title: 'Add Squad' });
+  })
+}
 
   function create(req, res) {
     const squad = new Squad(req.body);
