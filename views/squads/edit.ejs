@@ -1,12 +1,7 @@
 <%- include('../partials/header') %>
 <form action="/squads/<%= squad._id%>?_method=PUT" method="POST">
     <label for="squad">Edit Name:
-        <select name="squad">
-            <option <%= squad.name  === "North" ? "selected":"" %> value="North">North</option>
-            <option <%= squad.name === "East" ? "selected":"" %> value="East">East</option>
-            <option <%= squad.name  === "South" ? "selected":"" %> value="South">South</option>
-            <option <%= squad.name === "West" ? "selected":"" %> value="West">West</option>
-        </select>
+        <input type="text" name="name">
     </label>
     <label for="characters">Edit Characters:
         <select name="character">

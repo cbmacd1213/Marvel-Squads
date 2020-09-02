@@ -3,12 +3,7 @@
   <title>Enter a New Squad</title>
 <form action="/squads" method="POST">
   <label>Name
-    <select name="name">
-      <option value="North">North</option>
-      <option value="East">East</option>
-      <option value="South">South</option>
-      <option value="West">West</option>
-    </select>
+    <input type="text" name="name">
   </label><br>
   <label>Character
     <select name="character">
@@ -19,6 +14,6 @@
       <option value="Thor">Thor</option>
     </select>
   </label><br>
-  <input type="submit" value="Add Character">
+  <input type="submit" value="Add Squad">
 </form>
 <%- include('../partials/footer') %>

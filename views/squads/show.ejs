@@ -1,9 +1,8 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-    <div>Name: </div>
-    <div><%= squad %></div>
-    <form id="add-layover-form" method="POST" action="/squads">
+    <div>Squad name: <%= squad.name %></div>
+    <form id="edit-name-form" method="POST" action="/squads">
         <select name="name">
             <option value="North">North</option>
             <option value="East">East</option>

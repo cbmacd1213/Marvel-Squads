@@ -12,8 +12,8 @@ const Schema = mongoose.Schema;
 let squadSchema = new Schema({
     googleId: String,
     name: {
-        type: String,
-        enum: ['North', 'East', 'South', 'West']
+        type: String
+        // enum: ['North', 'East', 'South', 'West']
     },
     characters: {
         type: mongoose.Schema.Types.ObjectId, ref: 'Character'

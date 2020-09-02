@@ -1,5 +1,5 @@
 const Squad = require('../models/squad');
-const Character = require('../models/character');
+//const Character = require('../models/character');
 
 module.exports = {
     index,
@@ -53,7 +53,7 @@ function newSquad(req, res) {
         if (err) {
             res.render('squads/edit', { squad, title: 'Edit Squad'})
         }
-        res.redirect(`/`)
+        res.redirect(`/squads`)
     })
   }
 
