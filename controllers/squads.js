@@ -53,7 +53,7 @@ function newSquad(req, res) {
         if (err) {
             res.render('squads/edit', { squad, title: 'Edit Squad'})
         }
-        res.redirect(`squads`)
+        res.redirect(`/`)
     })
   }
 
