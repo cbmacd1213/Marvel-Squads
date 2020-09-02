@@ -1,5 +1,6 @@
 const Squad = require('../models/squad');
-//const Character = require('../models/character');
+
+const Character = require('../models/character');
 
 module.exports = {
     index,
@@ -41,10 +42,13 @@ function newSquad(req, res) {
 
   function edit(req, res) {
     Squad.findById(req.params.id, function(err, squad) {
+      Character.find({}, function(err, characters){
         if (err) {
-            res.redirect(`/squads/${req.params.id}`)
-        }
-        res.render('squads/edit', { squad, title: 'Edit Squad'})
+          res.redirect(`/squads/${req.params.id}`)
+      } 
+      console.log(characters)
+      res.render('squads/edit', { squad, characters, title: 'Edit Squad'})
+      })  
     })
   }
 

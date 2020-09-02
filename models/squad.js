@@ -15,9 +15,9 @@ let squadSchema = new Schema({
         type: String
         // enum: ['North', 'East', 'South', 'West']
     },
-    characters: {
+    characters: [{
         type: mongoose.Schema.Types.ObjectId, ref: 'Character'
-    }
+    }]   
 })
 
 module.exports = mongoose.model('Squad', squadSchema);

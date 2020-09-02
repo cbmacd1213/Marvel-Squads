@@ -1,25 +1,27 @@
 <%- include('../partials/header') %>
 
+<% if (squad.characters.length) { %>
 <section id="show-page">
     <div>Squad name: <%= squad.name %></div>
-    <form id="edit-name-form" method="POST" action="/squads">
-        <select name="name">
+    <form id="edit-name-form" method="POST" action="/characters">
+        <!-- <select name="name">
             <option value="North">North</option>
             <option value="East">East</option>
             <option value="South">South</option>
             <option value="West">West</option>
-          </select>
+          </select> -->
         <label>Character:</label>
         <select name="character">
-            <option value="Spiderman">Spiderman</option>
-            <option value="Iron Man">Iron Man</option>
-            <option value="Hulk">Hulk</option>
-            <option value="Captain America">Captain America</option>
-            <option value="Thor">Thor</option>
+          <% character.forEach(function(c) { %> 
+          <option value="<%c.id%>"><% c.name %></option>
         </select>
-        <input type="submit" value="Add Character">
+        <input type="submit" value="Select Character">
     </form>
+    <% }); %>
     
+<% } else { %>
+  <h5>No Characters Yet</h5>
+<% } %>
 
 
 <%- include('../partials/footer') %>

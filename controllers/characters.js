@@ -8,7 +8,7 @@ module.exports = {
  }
 
  function newCharacter(req, res) {
-    res.render('squads/new', { title: 'Add Squad' });
+    res.render('characters/new', { title: 'Add Characters' });
   }
 
 function create(req, res) {
