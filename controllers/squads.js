@@ -1,8 +1,6 @@
 const Squad = require('../models/squad');
-
 const Character = require('../models/character');
-const characters = require('./characters');
-const character = require('../models/character');
+
 
 module.exports = {
     index,
@@ -11,7 +9,8 @@ module.exports = {
      create,
      edit, 
      update,
-     delete: deleteSquad
+     delete: deleteSquad,
+     add
  }
 function index(req, res) {
     Squad.find({}, function(err, squads) {
@@ -22,16 +21,19 @@ function index(req, res) {
 
  function show(req, res) {
     Squad.findById(req.params.id, function(err, squad) {
+      Character.find({}, function(err, characters){
+        res.render('squads/show', { characters, title: 'Squad Detail', squad });
+
+      })
         //console.log('squad', squad)
         //Character.save({squad: squad._id}, function(err, characters) {
-       res.render('squads/show', { title: 'Squad Detail', squad });
     //});
   });
  }
 
 function newSquad(req, res) {
   Character.find({}, function(err, characters){
-    res.render('squads/new', characters, {title: 'Add Squad' });
+    res.render('squads/new', {characters, title: 'Add Squad' });
   })
 }
 
@@ -67,8 +69,17 @@ function newSquad(req, res) {
 
   function deleteSquad(req, res) {
     Squad.findByIdAndDelete(req.params.id, function(err) {
-        //Character.remove({squad: req.params.id}, function(err) {
+        Character.remove({squad: req.params.id}, function(err) {
             res.redirect('/squads');
-        //});
+        });
     });
   }
+
+  function add(req, res) {
+    Squad.findById(req.params.id, squads.characters) 
+      Squad.characters.push(req.body) 
+        Squad.save(function(err) {
+          res.redirect('/squads');
+      })
+    }
+  

@@ -1,21 +1,21 @@
 <%- include('../partials/header') %>
 
+
 <% if (squad.characters.length) { %>
 <section id="show-page">
-    <div>Squad name: <%= squad.name %></div>
-    <form id="add-character-form" method="POST" action="/characters">
-        <label>Character:</label>
-        <select name="<%c._name%>">
-          <% character.forEach(function(c) { %> 
-          <option value="<%=c._id%>"><%= c.name %></option>
-        </select>
-        <input type="submit" value="Select Character">
-    </form>
-    <% }); %>
-    
+    <div>Squad name: <%= squad.name %></div>    
 <% } else { %>
   <h5>No Characters Yet</h5>
 <% } %>
 
+<form id="add-character-form" method="POST" action="/characters">
+  <label>Character:</label>
+  <select name="character">
+    <% characters.forEach(function(c) { %> 
+    <option value="<%=c._id%>"><%= c.name %></option>
+    <% }) %>
+  </select>
+  <input type="submit" value="Select Character">
+</form>
 
 <%- include('../partials/footer') %>

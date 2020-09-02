@@ -21,7 +21,6 @@ function create(req, res) {
   }
 
 
-
   function deleteCharacter(req, res) {
     Character.findByIdAndDelete(req.params.id, function(err) {
        res.redirect('/squads');   
