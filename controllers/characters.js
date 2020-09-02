@@ -1,37 +1,29 @@
-const Squad = require('../models/character');
+const Character = require('../models/character');
+
 
 module.exports = {
-  new: newCharacter,
-  create,
-  delete: deleteCharacter
-};
+   new: newCharacter,
+   create, 
+   delete: deleteCharacter
+ }
 
-
-function newCharacter(req, res) {
-    res.render('squads/new', {
-        squadID: req.params.id,
-        title: 'Add Character'
-    })
-}
-
+ function newCharacter(req, res) {
+    res.render('squads/new', { title: 'Add Squad' });
+  }
 
 function create(req, res) {
-  Squad.findById(req.params.id, function(err, squad) {
-    squad.characters.push(req.body);
-    squad.save(function(err){
-        if (err) console.log(err)
-      res.redirect(`/squads/${req.params.id}`);
-      console.log(squad)
-    });
+  const character = new Character(req.body);
+  character.save(function(err) {
+    if (err) { return res.redirect('/squads/new');
+  }
+    res.redirect('/squads');
   });
-}
+  }
 
-function deleteCharacter(req, res) {
-  Squad.findOne({'characters._id': req.params.id}, function(err, squad) {
-      const charSubdoc = squad.characters.id(req.params.id);
-      charSubdoc.remove();
-      squad.save(function(err) {
-          res.redirect(`/squads/${squad._id}`);
-      })
-  })
-}
+
+
+  function deleteCharacter(req, res) {
+    Character.findByIdAndDelete(req.params.id, function(err) {
+       res.redirect('/squads');   
+    });
+  }

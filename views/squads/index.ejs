@@ -2,7 +2,7 @@
 
     <nav>
         <div class="nav-wrapper">
-          <a href="" class="brand-logo left">Marvel Squads</a>
+          <a href="">Marvel Squads</a>
           <ul class="right">
             <li>
               <% if (user) { %>
@@ -27,6 +27,11 @@
               <td><%= squad.name %></td>
               <td><%= squad.characters %></td>
               <td><a href="/squads/<%=squad._id%>">Details</a>&nbsp;|&nbsp;<a href="/squads/<%=squad._id%>/edit">Edit</a></td>
+              <td>
+                <form action="/squads/<%=squad._id%>?_method=DELETE" method="POST">
+                  <button class="red-button" type="submit">X</button>
+                </form>
+            </td>
             </tr>
             <% }); %>
           </tbody>
