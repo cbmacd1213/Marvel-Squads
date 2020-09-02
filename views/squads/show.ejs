@@ -1,15 +1,10 @@
 <%- include('../partials/header') %>
 
+
 <% if (squad.characters.length) { %>
 <section id="show-page">
     <div>Squad name: <%= squad.name %></div>
-    <form id="edit-name-form" method="POST" action="/characters">
-        <!-- <select name="name">
-            <option value="North">North</option>
-            <option value="East">East</option>
-            <option value="South">South</option>
-            <option value="West">West</option>
-          </select> -->
+    <form id="add-character-form" method="POST" action="/characters">
         <label>Character:</label>
         <select name="character">
           <% character.forEach(function(c) { %> 

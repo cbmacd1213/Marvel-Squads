@@ -20,7 +20,7 @@ function index(req, res) {
 
  function show(req, res) {
     Squad.findById(req.params.id, function(err, squad) {
-        console.log('squad', squad)
+        //console.log('squad', squad)
         //Character.save({squad: squad._id}, function(err, characters) {
        res.render('squads/show', { title: 'Squad Detail', squad });
     //});
