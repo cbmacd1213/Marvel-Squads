@@ -9,7 +9,7 @@
           <% squads.forEach(function(squad) { %>
             <tr>
               <td><%= squad.name %></td>
-              <td><%= squad.characters %></td>
+              <td><%= squad._v %></td>
               <td><a href="/squads/<%=squad._id%>">Details</a>&nbsp;|&nbsp;<a href="/squads/<%=squad._id%>/edit">Edit</a></td>
               <td>
                 <form action="/squads/<%=squad._id%>?_method=DELETE" method="POST">

@@ -12,7 +12,7 @@
         <a href="/squads">Marvel Squads</a>
         <a href="/squads/new" <%- title === 'Add Squad' ? 'class="active"' : '' %>>ADD SQUAD</a>
         <a href="/squads" <%- title === 'All Squads' ? 'class="active"' : '' %>>ALL SQUADS</a>
-        <a href="/characters/new" <%- title === 'Add Characters' ? 'class="active"' : '' %>>ADD CHARACTERS</a>
+        <a href="/characters/squads/:id/new" <%- title === 'Add Characters' ? 'class="active"' : '' %>>ADD CHARACTERS</a>
         <div class="nav-wrapper">
               <% if (user) { %>
                   <a href="/logout"><i class="material-icons left"></i>Log Out</a>
