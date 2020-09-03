@@ -2,15 +2,25 @@
 
 
 <% if (squad.characters.length) { %>
-<section id="show-page">
-    <div>Squad name: <%= squad.name %></div>
-    <div> Characters: <%= squad.characters[2].name %></div>
-    <% squad.characters.forEach(function(sc) {%>
-
+  <table>
+    <thead>
+      <tr>
+        <th>Characters</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let total = 0 %>
+      <% squad.characters.forEach(function(sc) { %>
+        <% total += sc.name %>
+        <tr>
+          <td><%= sc.name %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
 <% } else { %>
   <h5>No Characters Yet</h5>
 <% } %>
-<% %>
 
 
 <form id="add-character-form" method="POST" action="/squads/<%= squad._id%>/characters">
