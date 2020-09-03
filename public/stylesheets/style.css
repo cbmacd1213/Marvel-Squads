@@ -10,10 +10,20 @@ body {
   align-content: center;
 }
 
+main {
+  background-color: rgba(255,255,255,0.5);
+  position: relative;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgba(255,255,255,0.75);
+  width: 50vw;
+  padding: 0;
+  align-self: center;
+}
+
 nav {
   position: relative;
   font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255,255,255,0.75);
   width: 50vw;
   height: 5vh;
   padding: 0;
