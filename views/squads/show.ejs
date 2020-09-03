@@ -14,6 +14,11 @@
         <% total += sc.name %>
         <tr>
           <td><%= sc.name %></td>
+          <td>
+            <form action="/characters/<%=sc._id%>?_method=DELETE" method="POST">
+              <button class="red-button" type="submit">X</button>
+            </form>
+        </td>
         </tr>
       <% }); %>
     </tbody>

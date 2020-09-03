@@ -7,6 +7,6 @@ router.get('/squads/:id/new', charactersCtrl.new);
 //POST /characters/
 router.post('/squads', charactersCtrl.create);
 //DELETE /characters/
-router.delete('/characters/:id', charactersCtrl.delete);
+router.delete('/:id', charactersCtrl.delete);
 
 module.exports = router;

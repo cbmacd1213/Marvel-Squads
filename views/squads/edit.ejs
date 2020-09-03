@@ -3,16 +3,7 @@
     <h3><%= squad.name %></h3>
     <label for="squad">Edit Name:
         <input type="text" name="name">
-    </label>
-    <label for="characters">Edit Characters:
-        <select name="character">
-            <option <%= squad.character === "Spiderman" ? "selected":"" %>>Spiderman</option>
-            <option <%= squad.character === "Iron Man" ? "selected":"" %>>Iron Man</option>
-            <option <%= squad.character === "Hulk" ? "selected":"" %>>Hulk</option>
-            <option <%= squad.character === "Captain America" ? "selected":"" %>>Captain America</option>
-            <option <%= squad.character === "Thor" ? "selected":"" %>>Thor</option>
-        </select>
-    </label>    
+    </label>   
     <button class="submit-button" type="submit">Accept Changes</button>
 </form>
 <%- include('../partials/footer') %>
