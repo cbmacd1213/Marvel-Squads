@@ -4,17 +4,20 @@
 <% if (squad.characters.length) { %>
 <section id="show-page">
     <div>Squad name: <%= squad.name %></div>
-    <div> Characters: <%= squad.characters %></div> 
+    <div> Characters: <%= squad.characters[2].name %></div>
+    <% squad.characters.forEach(function(sc) {%>
+
 <% } else { %>
   <h5>No Characters Yet</h5>
 <% } %>
+<% %>
 
 
 <form id="add-character-form" method="POST" action="/squads/<%= squad._id%>/characters">
   <label>Character:</label>
   <select name="character">
     <% characters.forEach(function(c) { %> 
-    <option value="<%=c.name%>"><%= c.name %></option>
+    <option value="<%=c._id %>"><%= c.name %></option>
     <% }) %>
   </select>
   <input type="submit" value="Select Character">

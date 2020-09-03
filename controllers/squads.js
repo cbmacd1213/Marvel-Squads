@@ -96,11 +96,9 @@ function newSquad(req, res) {
   
   function add(req, res){
     Squad.findById(req.params.id, function (err, squad){
-      Character.findById(req.body.character, function(err, character){
-      squad.characters.push(character)
-      squad.save(function(err){
-        res.redirect(`/squads`)
-      })
+    squad.characters.push(req.body.character)
+    squad.save(function(err){
+     res.redirect(`/squads`)
     })
   })
 }
