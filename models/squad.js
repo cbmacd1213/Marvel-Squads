@@ -10,7 +10,9 @@ const Schema = mongoose.Schema;
 
 
 let squadSchema = new Schema({
-    googleId: String,
+    googleId: {
+        type: mongoose.Schema.Types.ObjectId, ref: 'User'
+    },
     name: {
         type: String
         // enum: ['North', 'East', 'South', 'West']
@@ -19,5 +21,7 @@ let squadSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId, ref: 'Character'
     }]   
 })
+
+
 
 module.exports = mongoose.model('Squad', squadSchema);

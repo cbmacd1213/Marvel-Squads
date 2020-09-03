@@ -50,6 +50,7 @@ function newSquad(req, res) {
 
   function create(req, res) {
     const squad = new Squad(req.body);
+    squad.googleId = req.user._id;
     squad.save(function(err) {
       if (err) { return res.redirect('/squads/new');
     }
@@ -79,8 +80,10 @@ function newSquad(req, res) {
   }
 
   function deleteSquad(req, res) {
-    Squad.findByIdAndDelete(req.params.id, function(err) {
+    Squad.findByIdAndDelete(req.params.id, function(err, squad) {
         Character.remove({squad: req.params.id}, function(err) {
+          console.log('this is the delete', squad)
+          if (!squad.googleId.equals(req.user._id)) return res.redirect(`/squads`);
             res.redirect('/squads');
         });
     });
