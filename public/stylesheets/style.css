@@ -1,9 +1,22 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+  background-size: auto;
   background-image: url('https://i.imgur.com/DNc9OPU.jpg');
   background-repeat: no-repeat;
+  background-size: cover;
   color: darkblue;
+}
+
+nav {
+  position: relative;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgba(255,255,255,0.5);
+  width: 50vw;
+  height: 5vh;
+  padding: 0;
+  align-self: center;
 }
 
 a {
