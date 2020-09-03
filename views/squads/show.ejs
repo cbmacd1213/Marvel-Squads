@@ -19,7 +19,11 @@
             <form action="/characters/<%=sc._id%>?_method=DELETE" method="POST">
               <button class="red-button" type="submit">X</button>
             </form>
-            <% } %>
+            <% } else { %>
+              <form action="/squads" method="GET">
+                <button class="red-button" type="submit">X</button>
+              </form>
+              <% }%>
         </td>
         </tr>
       <% }); %>
