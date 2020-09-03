@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const charactersCtrl = require('../controllers/characters');
 
-router.get('/new', charactersCtrl.new);
-router.post('/', charactersCtrl.create);
+router.get('/squads/:id/characters/new', charactersCtrl.new);
+router.post('/squads/:id/characters', charactersCtrl.create);
 router.delete('/characters/:id', charactersCtrl.delete);
 
 module.exports = router;

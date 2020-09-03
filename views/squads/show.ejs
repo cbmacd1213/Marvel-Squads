@@ -8,10 +8,10 @@
   <h5>No Characters Yet</h5>
 <% } %>
 
-<form id="add-character-form" method="POST" action="/characters">
+<form id="add-character-form" method="POST" action="/squads/<%= squad._id%>/characters">
   <label>Character:</label>
-  <select name="characters">
-    <%squad.characters.forEach(function(c) { %> 
+  <select name="character.id">
+    <%characters.forEach(function(c) { %> 
     <option value="<%=c._id%>"><%= c.name %></option>
     <% }) %>
   </select>
