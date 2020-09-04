@@ -4,7 +4,7 @@ const squadsCtrl = require('../controllers/squads')
 
 router.get('/', squadsCtrl.index);
 router.get('/new', squadsCtrl.new);
-router.get('/:id', squadsCtrl.show);
+router.get('/:id', isLoggedIn, squadsCtrl.show);
 router.post('/', isLoggedIn, squadsCtrl.create);
 router.delete('/:id', isLoggedIn, squadsCtrl.delete);
 router.get('/:id/edit', squadsCtrl.edit);
