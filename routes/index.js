@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  //This is where I'll add splash page for non logged in using res.render instead
+  //This is where I'll add splash page for non logged in using res.render instead(icebox)
   res.redirect('/squads');
 });
 

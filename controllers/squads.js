@@ -3,33 +3,22 @@ const Character = require('../models/character');
 
 
 module.exports = {
-    index,
-     show,
-     new: newSquad,
-     create,
-     edit, 
-     update,
-     delete: deleteSquad,
-     add
- }
+  index,
+  show,
+  new: newSquad,
+  create,
+  edit, 
+  update,
+  delete: deleteSquad,
+  add
+}
+
 function index(req, res) {
-    Squad.find({}, function(err, squads) {
-        console.log('squads', squads)
+  Squad.find({}, function(err, squads) {
+    console.log('squads', squads)
       res.render('squads/index', { title: 'All Squads', squads });
-    });
-  }
-
-//  function show(req, res) {
-//     Squad.findById(req.params.id, function(err, squad) {
-//       Character.find({}, function(err, characters){
-//         res.render('squads/show', { characters, title: 'Squad Detail', squad });
-
-//       })
-//         //console.log('squad', squad)
-//         //Character.save({squad: squad._id}, function(err, characters) {
-//     //});
-//   });
-//  }
+  });
+}
 
 function show(req, res) {
   Squad.findById(req.params.id).populate('characters').exec(function(err, squad) {
@@ -40,23 +29,21 @@ function show(req, res) {
 )}
 
 
-
-
 function newSquad(req, res) {
   Character.find({}, function(err, characters){
     res.render('squads/new', {characters, title: 'Add Squad' });
   })
 }
 
-  function create(req, res) {
-    const squad = new Squad(req.body);
-    squad.googleId = req.user._id;
-    squad.save(function(err) {
-      if (err) { return res.redirect('/squads/new');
-    }
-      res.redirect('/squads');
-    });
+function create(req, res) {
+  const squad = new Squad(req.body);
+  squad.googleId = req.user._id;
+  squad.save(function(err) {
+    if (err) { return res.redirect('/squads/new');
   }
+    res.redirect('/squads');
+  });
+}
 
   function edit(req, res) {
     Squad.findById(req.params.id, function(err, squad) {
@@ -64,7 +51,6 @@ function newSquad(req, res) {
         if (err) {
           res.redirect(`/squads/${req.params.id}`)
       } 
-      console.log(characters)
       res.render('squads/edit', { squad, characters, title: 'Edit Squad'})
       })  
     })
@@ -82,20 +68,13 @@ function newSquad(req, res) {
   function deleteSquad(req, res) {
     Squad.findByIdAndDelete(req.params.id, function(err, squad) {
         Character.remove({squad: req.params.id}, function(err) {
-          console.log('this is the delete', squad)
           if (!squad.googleId.equals(req.user._id)) return res.redirect(`/squads`);
             res.redirect('/squads');
         });
     });
   }
 
-  // function add(req, res) {
-  //   Squad.findById(req.params.id, squads.characters) 
-  //     Squad.characters.push(req.body) 
-  //       Squad.save(function(err) {
-  //         res.redirect('/squads');
-  //     })
-  //   }
+ 
   
   function add(req, res){
     Squad.findById(req.params.id, function (err, squad){
