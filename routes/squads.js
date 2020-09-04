@@ -8,8 +8,8 @@ router.get('/:id', squadsCtrl.show);
 router.post('/', isLoggedIn, squadsCtrl.create);
 router.delete('/:id', isLoggedIn, squadsCtrl.delete);
 router.get('/:id/edit', squadsCtrl.edit);
-router.put('/:id', squadsCtrl.update);
-router.post('/:id/characters', squadsCtrl.add)
+router.put('/:id', isLoggedIn, squadsCtrl.update);
+router.post('/:id/characters', isLoggedIn, squadsCtrl.add)
 
 
 function isLoggedIn(req, res, next) {
