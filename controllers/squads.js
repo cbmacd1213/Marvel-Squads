@@ -15,7 +15,6 @@ module.exports = {
 
 function index(req, res) {
   Squad.find({}, function(err, squads) {
-    console.log('squads', squads)
       res.render('squads/index', { title: 'All Squads', squads });
   });
 }
@@ -65,12 +64,22 @@ function create(req, res) {
     })
   }
 
+  // function deleteSquad(req, res) {
+  //   Squad.findByIdAndDelete(req.params.id, function(err, squad) {
+  //       Character.remove({squad: req.params.id}, function(err) {
+  //         if (!squad.googleId.equals(req.user._id)) return res.redirect(`/squads`);
+  //           res.redirect('/squads');
+  //       });
+  //   });
+  // }
   function deleteSquad(req, res) {
-    Squad.findByIdAndDelete(req.params.id, function(err, squad) {
-        Character.remove({squad: req.params.id}, function(err) {
-          if (!squad.googleId.equals(req.user._id)) return res.redirect(`/squads`);
-            res.redirect('/squads');
-        });
+    Squad.findById(req.params.id, function(err, squad) {
+      console.log(squad, 'checking to to see if this has googleId or userId')
+      if (!squad.googleId.equals(req.user._id)) return res.redirect(`/squads`);
+      squad.remove();
+      squad.save(function(err) {
+        res.redirect(`/squads`);
+      });
     });
   }
 
