@@ -10,12 +10,15 @@
             <tr>
               <td><%= squad.name %></td>
               <td><%= squad._v %></td>
-              <td><a href="/squads/<%=squad._id%>">Details</a>&nbsp;|&nbsp;<a href="/squads/<%=squad._id%>/edit">Edit</a></td>
+              <td><a href="/squads/<%=squad._id%>">Details</a>&nbsp;|&nbsp;
+                <% if (squad.googleId.equals(user._id)) {%>
+                <a href="/squads/<%=squad._id%>/edit">Edit</a></td> 
               <td>
                 <form action="/squads/<%=squad._id%>?_method=DELETE" method="POST">
                   <button class="red-button" type="submit">X</button>
                 </form>
             </td>
+            <% } %>
             </tr>
             <% }); %>
           </tbody>

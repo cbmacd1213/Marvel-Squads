@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 const squadsCtrl = require('../controllers/squads')
 
-router.get('/', squadsCtrl.index);
+router.get('/', isLoggedIn, squadsCtrl.index);
 router.get('/new', squadsCtrl.new);
-router.get('/:id', isLoggedIn, squadsCtrl.show);
+router.get('/:id', squadsCtrl.show);
 router.post('/', isLoggedIn, squadsCtrl.create);
 router.delete('/:id', isLoggedIn, squadsCtrl.delete);
-router.get('/:id/edit', squadsCtrl.edit);
+router.get('/:id/edit', isLoggedIn, squadsCtrl.edit);
 router.put('/:id', isLoggedIn, squadsCtrl.update);
 router.post('/:id/characters', isLoggedIn, squadsCtrl.add)
 

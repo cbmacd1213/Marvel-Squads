@@ -64,14 +64,6 @@ function create(req, res) {
     })
   }
 
-  // function deleteSquad(req, res) {
-  //   Squad.findByIdAndDelete(req.params.id, function(err, squad) {
-  //       Character.remove({squad: req.params.id}, function(err) {
-  //         if (!squad.googleId.equals(req.user._id)) return res.redirect(`/squads`);
-  //           res.redirect('/squads');
-  //       });
-  //   });
-  // }
   function deleteSquad(req, res) {
     Squad.findById(req.params.id, function(err, squad) {
       console.log(squad, 'checking to to see if this has googleId or userId')
